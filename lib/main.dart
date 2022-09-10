@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           brightness: Brightness.light,
         ),
-        initialRoute: '/',
+        initialRoute: '/productDetail',
         onGenerateRoute: PageRouter.generateRoute,
       ),
     );
