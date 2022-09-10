@@ -1,5 +1,3 @@
-import 'package:flutter/cupertino.dart';
-
 class Product {
   int? id;
   String? brand;

@@ -15,6 +15,14 @@ class ProductDetailView extends StatelessWidget {
           backgroundColor: Colors.white,
           centerTitle: true,
           elevation: 0,
+          leading: IconButton(
+            icon: const Icon(
+              Icons.arrow_back_ios,
+              size: 20.0,
+              color: primaryColor,
+            ),
+            onPressed: () => Navigator.of(context).pop(),
+          ),
           title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:maybelline/core/viewmodels/home_model.dart';
 import 'package:maybelline/locator.dart';
-import 'package:maybelline/ui/router.dart';
 import 'package:maybelline/ui/routes.dart';
 import 'package:maybelline/ui/shared/app_colors.dart';
 import 'package:provider/provider.dart';
