@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:maybelline/ui/Views/home_view.dart';
+import 'package:maybelline/ui/Views/home/home_view.dart';
 
 class PageRouter {
   static Route<dynamic> generateRoute(RouteSettings settings) {

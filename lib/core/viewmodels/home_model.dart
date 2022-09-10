@@ -7,7 +7,7 @@ import 'package:maybelline/locator.dart';
 class HomeModel extends BaseModel {
   final ProductService _productService = locator<ProductService>();
 
-  List<Product> get posts => _productService.products;
+  List<Product> get products => _productService.products;
 
   Future fetchProducts() async {
     setState(ViewState.Busy);
