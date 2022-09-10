@@ -28,7 +28,12 @@ class HomeView extends StatelessWidget {
                       borderRadius: BorderRadius.circular(13.0)),
                   child: InkWell(
                     borderRadius: BorderRadius.circular(13.0),
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pushNamed(
+                        context,
+                        '/report',
+                      );
+                    },
                     child: const Padding(
                       padding: EdgeInsets.all(10.0),
                       child: Icon(

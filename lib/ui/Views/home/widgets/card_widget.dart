@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:maybelline/core/models/product.dart';
+import 'package:maybelline/ui/Views/productDetails/product_detail_view.dart';
 import 'package:maybelline/ui/shared/app_colors.dart';
 
 class CardWidget extends StatelessWidget {
@@ -8,7 +9,13 @@ class CardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        Navigator.pushNamed(
+          context,
+          '/productDetail',
+          arguments: ProductDetailsArguments(product: product),
+        );
+      },
       child: Container(
         margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
         width: 150,

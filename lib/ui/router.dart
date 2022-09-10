@@ -4,6 +4,7 @@ import 'package:maybelline/ui/Views/productDetails/product_detail_view.dart';
 
 class PageRouter {
   static Route<dynamic> generateRoute(RouteSettings settings) {
+    final arguments = settings.arguments;
     switch (settings.name) {
       case '/':
         return MaterialPageRoute(builder: (_) => const HomeView());

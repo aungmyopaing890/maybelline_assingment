@@ -1,3 +1,5 @@
+import 'package:flutter/cupertino.dart';
+
 class Product {
   int? id;
   String? brand;
@@ -27,6 +29,7 @@ class Product {
         brand = '',
         name = '',
         price = 0.0,
+        rating = 0.0,
         imageLink = '',
         description = '',
         productType = '';
@@ -35,11 +38,11 @@ class Product {
     id = json['id'];
     brand = json['brand'];
     name = json['name'];
+    rating = json['rating'];
     price = double.parse(json['price']);
     priceSign = json['price_sign'];
     imageLink = json['image_link'];
     description = json['description'];
-    rating = json['rating'];
     productType = json['product_type'];
     productColors = json['product_colors'];
   }

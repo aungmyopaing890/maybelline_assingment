@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:maybelline/core/viewmodels/home_model.dart';
 import 'package:maybelline/locator.dart';
 import 'package:maybelline/ui/router.dart';
+import 'package:maybelline/ui/routes.dart';
+import 'package:maybelline/ui/shared/app_colors.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -19,11 +21,10 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Maybeline',
-        theme: ThemeData(
-          brightness: Brightness.light,
-        ),
-        initialRoute: '/productDetail',
-        onGenerateRoute: PageRouter.generateRoute,
+        theme:
+            ThemeData(brightness: Brightness.light, primaryColor: primaryColor),
+        initialRoute: '/report',
+        routes: routes,
       ),
     );
   }
