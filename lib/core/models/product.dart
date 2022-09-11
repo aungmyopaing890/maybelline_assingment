@@ -1,3 +1,5 @@
+import 'package:flutter/cupertino.dart';
+
 class Product {
   int? id;
   String? brand;
@@ -8,7 +10,7 @@ class Product {
   String? description;
   double? rating;
   String? productType;
-  List? productColors;
+  List<ProductColor>? productColors = [];
 
   Product(
       {this.id,
@@ -42,6 +44,30 @@ class Product {
     imageLink = json['image_link'];
     description = json['description'];
     productType = json['product_type'];
-    productColors = json['product_colors'];
+    for (var pruduct in json['product_colors']) {
+      productColors?.add(ProductColor.fromJson(pruduct));
+    }
+  }
+}
+
+class ProductColor {
+  Color? color;
+
+  ProductColor({
+    this.color,
+  });
+
+  ProductColor.fromJson(Map<String, dynamic> json) {
+    color = HexColor.fromHex(json['hex_value']);
+  }
+}
+
+extension HexColor on Color {
+  static Color fromHex(String hexColorString) {
+    hexColorString = hexColorString.replaceAll('#', '');
+    if (hexColorString.length == 6) {
+      hexColorString = "FF$hexColorString";
+    }
+    return Color(int.parse(hexColorString, radix: 16));
   }
 }

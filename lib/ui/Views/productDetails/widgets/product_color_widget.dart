@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:maybelline/core/models/product.dart';
 
 class ColorsSelector extends StatelessWidget {
-  final List<Color> colors;
+  final List<ProductColor> colors;
   const ColorsSelector({
     Key? key,
     required this.colors,
@@ -9,25 +10,26 @@ class ColorsSelector extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: List.generate(
-          colors.length,
-          (index) => Padding(
-                padding: const EdgeInsets.all(5.0),
-                child: Material(
-                  child: InkWell(
-                    borderRadius: BorderRadius.circular(8),
-                    onTap: () {},
-                    child: Ink(
-                      height: 30,
-                      width: 30,
-                      decoration: BoxDecoration(
-                          color: colors[index],
-                          borderRadius: BorderRadius.circular(8)),
-                    ),
-                  ),
+    return SizedBox(
+      height: 40,
+      child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemCount: colors.length,
+          itemBuilder: (BuildContext context, int index) {
+            return Padding(
+              padding: const EdgeInsets.all(5.0),
+              child: InkWell(
+                borderRadius: BorderRadius.circular(8),
+                onTap: () {},
+                child: Ink(
+                  width: 30,
+                  decoration: BoxDecoration(
+                      color: colors[index].color,
+                      borderRadius: BorderRadius.circular(8)),
                 ),
-              )),
+              ),
+            );
+          }),
     );
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:maybelline/core/models/product.dart';
+import 'package:maybelline/ui/Views/productDetails/widgets/product_color_widget.dart';
 import 'package:maybelline/ui/shared/app_colors.dart';
 
 class ProductDetailView extends StatelessWidget {
@@ -12,7 +13,7 @@ class ProductDetailView extends StatelessWidget {
         ModalRoute.of(context)!.settings.arguments as ProductDetailsArguments;
     return (Scaffold(
       appBar: AppBar(
-          backgroundColor: Colors.white,
+          backgroundColor: const Color.fromRGBO(255, 255, 255, 1),
           centerTitle: true,
           elevation: 0,
           leading: IconButton(
@@ -93,13 +94,15 @@ class ProductDetailView extends StatelessWidget {
               color: cardColor,
               child: Column(
                 children: [
-                  // Container(
-                  //   margin: const EdgeInsets.symmetric(
-                  //       horizontal: 25, vertical: 10),
-                  //   child: ColorsSelector(
-                  //     colors: [],
-                  //   ),
-                  // ),
+                  Container(
+                    margin: const EdgeInsets.symmetric(
+                        horizontal: 25, vertical: 10),
+                    child: ColorsSelector(
+                      colors: agrs.product.productColors != null
+                          ? agrs.product.productColors!
+                          : [],
+                    ),
+                  ),
                   Container(
                     margin: const EdgeInsets.symmetric(horizontal: 25),
                     alignment: Alignment.centerLeft,
@@ -213,7 +216,116 @@ class ProductDetailView extends StatelessWidget {
                               borderRadius: BorderRadius.circular(13.0)),
                           child: InkWell(
                             borderRadius: BorderRadius.circular(13.0),
-                            onTap: () {},
+                            onTap: () {
+                              showDialog(
+                                  context: context,
+                                  builder: (context) => AlertDialog(
+                                        shape: const RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(15.0))),
+                                        title: const Center(
+                                            child: Text(
+                                          "Delivery Info",
+                                          style: TextStyle(
+                                              color: textColor,
+                                              fontWeight: FontWeight.bold),
+                                        )),
+                                        content: SingleChildScrollView(
+                                          child: SizedBox(
+                                            height: 300,
+                                            child: Form(
+                                                child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              children: [
+                                                const SizedBox(
+                                                  height: 25,
+                                                ),
+                                                const Text(
+                                                  "Name",
+                                                  style: TextStyle(
+                                                      color: textColor,
+                                                      fontWeight:
+                                                          FontWeight.w500),
+                                                ),
+                                                TextFormField(
+                                                  decoration:
+                                                      const InputDecoration(
+                                                          border:
+                                                              InputBorder.none,
+                                                          filled: true,
+                                                          fillColor:
+                                                              textFormFillColor),
+                                                ),
+                                                const Text(
+                                                  "Phone No",
+                                                  style: TextStyle(
+                                                      color: textColor,
+                                                      fontWeight:
+                                                          FontWeight.w500),
+                                                ),
+                                                TextFormField(
+                                                  decoration:
+                                                      const InputDecoration(
+                                                          border:
+                                                              InputBorder.none,
+                                                          filled: true,
+                                                          fillColor:
+                                                              textFormFillColor),
+                                                ),
+                                                const Text(
+                                                  "Address",
+                                                  style: TextStyle(
+                                                      color: textColor,
+                                                      fontWeight:
+                                                          FontWeight.w500),
+                                                ),
+                                                TextFormField(
+                                                  maxLines: 4,
+                                                  decoration:
+                                                      const InputDecoration(
+                                                          border:
+                                                              InputBorder.none,
+                                                          filled: true,
+                                                          fillColor:
+                                                              textFormFillColor),
+                                                ),
+                                              ],
+                                            )),
+                                          ),
+                                        ),
+                                        actions: [
+                                          Center(
+                                            child: Ink(
+                                              decoration: BoxDecoration(
+                                                  color: primaryColor,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          13.0)),
+                                              child: InkWell(
+                                                borderRadius:
+                                                    BorderRadius.circular(13.0),
+                                                onTap: () {},
+                                                child: const Padding(
+                                                    padding:
+                                                        EdgeInsets.symmetric(
+                                                            horizontal: 25,
+                                                            vertical: 10),
+                                                    child: Text(
+                                                      "ORDER",
+                                                      style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          color: Colors.white),
+                                                    )),
+                                              ),
+                                            ),
+                                          )
+                                        ],
+                                      ));
+                            },
                             child: const Padding(
                                 padding: EdgeInsets.symmetric(
                                     horizontal: 10, vertical: 10),

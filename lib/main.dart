@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         title: 'Maybeline',
         theme:
             ThemeData(brightness: Brightness.light, primaryColor: primaryColor),
-        initialRoute: '/report',
+        initialRoute: '/',
         routes: routes,
       ),
     );
