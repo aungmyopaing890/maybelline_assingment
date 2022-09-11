@@ -316,8 +316,8 @@ class _ProductDetailViewState extends State<ProductDetailView> {
                                                 borderRadius:
                                                     BorderRadius.circular(13.0),
                                                 onTap: () {
-                                                  cartModel.makeOrder(
-                                                      agrs.product);
+                                                  cartModel
+                                                      .makeOrder(agrs.product);
                                                 },
                                                 child: const Padding(
                                                     padding:

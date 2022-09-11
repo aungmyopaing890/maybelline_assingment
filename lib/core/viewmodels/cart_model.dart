@@ -51,16 +51,17 @@ class CartModel extends BaseModel {
         'price': product.price,
         'priceSign': product.priceSign,
         'address': _addressController.text,
-        'quantity': _addressController.text,
+        'quantity': product.quantity,
         'phone': _phoneController.text,
         'total': product.total
       };
       await doc.set(josn);
-      _nameController.text = "";
-      _addressController.text = "";
-      _phoneController.text = "";
-      product.quantity = 1;
-      product.total = product.price;
+      // _nameController.text = "";
+      // _addressController.text = "";
+      // _phoneController.text = "";
+      // product.quantity = 1;
+      // product.total = product.price;
+      notifyListeners();
     }
   }
 }
