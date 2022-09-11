@@ -19,6 +19,6 @@ samples, guidance on mobile development, and a full API reference.
 
 
 1.Home Screen<br>
-![Home Screen](images/home.jpg)<br>
+![Home Screen](screenshots/home.jpg)<br>
 
 
