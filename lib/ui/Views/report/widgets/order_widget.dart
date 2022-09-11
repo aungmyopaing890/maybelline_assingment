@@ -26,7 +26,7 @@ class OrderWidget extends StatelessWidget {
                         fontWeight: FontWeight.w700),
                   ),
                   Text(
-                    order.total.toString(),
+                    '${order.priceSign ?? r"$"} ${order.total}',
                     style: const TextStyle(
                         color: greyColor,
                         fontSize: 20,
