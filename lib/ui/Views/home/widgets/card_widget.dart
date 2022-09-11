@@ -19,7 +19,7 @@ class CardWidget extends StatelessWidget {
       child: Container(
         margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
         width: 150,
-        height: 280,
+        height: 300,
         child: Card(
           color: cardColor,
           child: Column(
@@ -57,12 +57,9 @@ class CardWidget extends StatelessWidget {
                   ),
                 ),
               ),
-              Container(
-                margin: const EdgeInsets.symmetric(vertical: 10),
-                child: Text(
-                  product.productType.toString(),
-                  style: const TextStyle(fontWeight: FontWeight.w100),
-                ),
+              Text(
+                product.productType.toString(),
+                style: const TextStyle(fontWeight: FontWeight.w100),
               ),
               Text(
                 '${product.priceSign ?? r"$"} ${product.price}',

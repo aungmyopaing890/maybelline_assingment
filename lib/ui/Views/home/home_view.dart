@@ -14,85 +14,80 @@ class HomeView extends StatelessWidget {
       onModelReeady: (model) => model.fetchProducts(),
       builder: (BuildContext context, HomeModel model, Widget? child) =>
           Scaffold(
-        appBar: AppBar(
-            backgroundColor: Colors.white,
-            centerTitle: true,
-            elevation: 0,
-            title: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Ink(
-                  decoration: BoxDecoration(
-                      border: Border.all(color: outlineColor, width: 3),
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(13.0)),
-                  child: InkWell(
-                    borderRadius: BorderRadius.circular(13.0),
-                    onTap: () {
-                      Navigator.pushNamed(
-                        context,
-                        '/report',
-                      );
-                    },
-                    child: const Padding(
-                      padding: EdgeInsets.all(10.0),
-                      child: Icon(
-                        Icons.note_alt_sharp,
-                        size: 20.0,
-                        color: primaryColor,
-                      ),
-                    ),
-                  ),
-                ),
-                const Text("Maybeline",
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold)),
-                Ink(
-                  decoration: BoxDecoration(
-                      border: Border.all(color: outlineColor, width: 3),
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(13.0)),
-                  child: InkWell(
-                    borderRadius: BorderRadius.circular(13.0),
-                    onTap: () {},
-                    child: const Padding(
-                      padding: EdgeInsets.all(10.0),
-                      child: Icon(
-                        Icons.shopping_cart_outlined,
-                        size: 20.0,
-                        color: primaryColor,
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            )),
-        backgroundColor: backgroundColor,
-        body: model.state == ViewState.Busy
-            ? const Center(
-                child: CircularProgressIndicator(
-                  color: primaryColor,
-                ),
-              )
-            : Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Expanded(
-                    child: GridView.builder(
-                        itemCount: model.products.length,
-                        gridDelegate:
-                            const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          childAspectRatio: 0.60,
+              appBar: AppBar(
+                  backgroundColor: Colors.white,
+                  centerTitle: true,
+                  elevation: 0,
+                  title: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Ink(
+                        decoration: BoxDecoration(
+                            border: Border.all(color: outlineColor, width: 3),
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(13.0)),
+                        child: InkWell(
+                          borderRadius: BorderRadius.circular(13.0),
+                          onTap: () {
+                            Navigator.pushNamed(
+                              context,
+                              '/report',
+                            );
+                          },
+                          child: const Padding(
+                            padding: EdgeInsets.all(10.0),
+                            child: Icon(
+                              Icons.note_alt_sharp,
+                              size: 20.0,
+                              color: primaryColor,
+                            ),
+                          ),
                         ),
-                        itemBuilder: (context, index) =>
-                            CardWidget(model.products[index])),
-                  ),
-                ],
-              ),
-      ),
+                      ),
+                      const Text("Maybeline",
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold)),
+                      Ink(
+                        decoration: BoxDecoration(
+                            border: Border.all(color: outlineColor, width: 3),
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(13.0)),
+                        child: InkWell(
+                          borderRadius: BorderRadius.circular(13.0),
+                          onTap: () {},
+                          child: const Padding(
+                            padding: EdgeInsets.all(10.0),
+                            child: Icon(
+                              Icons.shopping_cart_outlined,
+                              size: 20.0,
+                              color: primaryColor,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  )),
+              backgroundColor: backgroundColor,
+              body: model.state == ViewState.Busy
+                  ? const Center(
+                      child: CircularProgressIndicator(
+                        color: primaryColor,
+                      ),
+                    )
+                  : Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: GridView.builder(
+                          itemCount: model.products.length,
+                          gridDelegate:
+                              const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
+                            childAspectRatio: 0.60,
+                          ),
+                          itemBuilder: (context, index) =>
+                              CardWidget(model.products[index])),
+                    )),
     );
   }
 }
