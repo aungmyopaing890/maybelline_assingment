@@ -4,25 +4,29 @@ class Product {
   int? id;
   String? brand;
   String? name;
-  double? price;
+  double price = 0;
   String? priceSign;
   String? imageLink;
   String? description;
   double? rating;
   String? productType;
   List<ProductColor>? productColors = [];
+  int quantity = 1;
+  double total = 0;
 
   Product(
       {this.id,
       this.brand,
       this.name,
-      this.price,
+      this.price = 0,
       this.priceSign,
       required this.imageLink,
       required this.description,
       this.rating,
       required this.productType,
-      this.productColors});
+      this.productColors,
+      this.quantity = 1,
+      this.total = 0});
 
   Product.initial()
       : id = 0,
@@ -32,14 +36,17 @@ class Product {
         rating = 0.0,
         imageLink = '',
         description = '',
-        productType = '';
+        productType = '',
+        quantity = 1;
 
   Product.fromJson(Map<String, dynamic> json) {
+    quantity = 1;
     id = json['id'];
     brand = json['brand'];
     name = json['name'];
     rating = json['rating'];
     price = double.parse(json['price']);
+    total = double.parse(json['price']);
     priceSign = json['price_sign'];
     imageLink = json['image_link'];
     description = json['description'];

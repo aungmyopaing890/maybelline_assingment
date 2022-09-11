@@ -11,4 +11,19 @@ class ProductService {
   Future fetchProducts() async {
     _products = await _api.fetchProducts();
   }
+
+  void minus(Product product) {
+    final index = _products.indexWhere((e) => e.id == product.id);
+    if (_products[index].quantity != 1) {
+      _products[index].quantity -= 1;
+      _products[index].total =
+          (_products[index].price * _products[index].quantity);
+    }
+  }
+
+  void add(Product product) {
+    final index = _products.indexWhere((e) => e.id == product.id);
+    _products[index].quantity += 1;
+    _products[index].total = _products[index].price * _products[index].quantity;
+  }
 }

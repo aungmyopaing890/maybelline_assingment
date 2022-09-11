@@ -37,7 +37,7 @@ class HomeView extends StatelessWidget {
                     child: const Padding(
                       padding: EdgeInsets.all(10.0),
                       child: Icon(
-                        Icons.report,
+                        Icons.note_alt_sharp,
                         size: 20.0,
                         color: primaryColor,
                       ),

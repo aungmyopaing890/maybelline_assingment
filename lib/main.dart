@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:maybelline/core/viewmodels/cart_model.dart';
 import 'package:maybelline/core/viewmodels/home_model.dart';
 import 'package:maybelline/locator.dart';
 import 'package:maybelline/ui/routes.dart';
@@ -15,16 +16,22 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (BuildContext context) => HomeModel(),
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Maybeline',
-        theme:
-            ThemeData(brightness: Brightness.light, primaryColor: primaryColor),
-        initialRoute: '/',
-        routes: routes,
-      ),
-    );
+    return MultiProvider(
+        providers: [
+          ChangeNotifierProvider<HomeModel>(
+            create: (BuildContext context) => HomeModel(),
+          ),
+          ChangeNotifierProvider<CartModel>(
+            create: (BuildContext context) => CartModel(),
+          ),
+        ],
+        child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Maybeline',
+          theme: ThemeData(
+              brightness: Brightness.light, primaryColor: primaryColor),
+          initialRoute: '/',
+          routes: routes,
+        ));
   }
 }

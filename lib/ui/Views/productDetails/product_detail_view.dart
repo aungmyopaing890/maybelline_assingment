@@ -1,17 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:maybelline/core/models/product.dart';
+import 'package:maybelline/core/viewmodels/cart_model.dart';
 import 'package:maybelline/ui/Views/productDetails/widgets/product_color_widget.dart';
 import 'package:maybelline/ui/shared/app_colors.dart';
+import 'package:provider/provider.dart';
 
-class ProductDetailView extends StatelessWidget {
+class ProductDetailView extends StatefulWidget {
   const ProductDetailView({Key? key}) : super(key: key);
 
   @override
+  State<ProductDetailView> createState() => _ProductDetailViewState();
+}
+
+class _ProductDetailViewState extends State<ProductDetailView> {
+  @override
   Widget build(BuildContext context) {
+    CartModel cartModel = context.watch<CartModel>();
     final ProductDetailsArguments agrs =
         ModalRoute.of(context)!.settings.arguments as ProductDetailsArguments;
-    return (Scaffold(
+
+    return Scaffold(
       appBar: AppBar(
           backgroundColor: const Color.fromRGBO(255, 255, 255, 1),
           centerTitle: true,
@@ -175,7 +184,7 @@ class ProductDetailView extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         Text(
-                          '${agrs.product.priceSign ?? r"$"} ${agrs.product.price}',
+                          '${agrs.product.priceSign ?? r"$"} ${agrs.product.total}',
                           style: const TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 25),
                         ),
@@ -191,18 +200,22 @@ class ProductDetailView extends StatelessWidget {
                           child: Row(
                             children: [
                               IconButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    cartModel.minus(agrs.product);
+                                  },
                                   icon: const Icon(
                                     Icons.remove,
                                     color: greyColor,
                                   )),
-                              const Text(
-                                "1",
-                                style:
-                                    TextStyle(fontSize: 15, color: greyColor),
+                              Text(
+                                agrs.product.quantity.toString(),
+                                style: const TextStyle(
+                                    fontSize: 15, color: greyColor),
                               ),
                               IconButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    cartModel.add(agrs.product);
+                                  },
                                   icon: const Icon(
                                     Icons.add,
                                     color: greyColor,
@@ -347,7 +360,7 @@ class ProductDetailView extends StatelessWidget {
           ],
         ),
       ),
-    ));
+    );
   }
 }
 
