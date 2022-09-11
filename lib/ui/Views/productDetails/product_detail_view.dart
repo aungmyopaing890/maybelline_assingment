@@ -3,6 +3,7 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:maybelline/core/models/product.dart';
 import 'package:maybelline/core/viewmodels/cart_model.dart';
 import 'package:maybelline/ui/Views/productDetails/widgets/product_color_widget.dart';
+import 'package:maybelline/ui/Views/widgets/text_form_field.dart';
 import 'package:maybelline/ui/shared/app_colors.dart';
 import 'package:provider/provider.dart';
 
@@ -245,68 +246,62 @@ class _ProductDetailViewState extends State<ProductDetailView> {
                                         )),
                                         content: SingleChildScrollView(
                                           child: SizedBox(
-                                            height: 300,
+                                            height: 350,
                                             child: Form(
+                                                key: cartModel.formKey,
                                                 child: Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.start,
-                                              children: [
-                                                const SizedBox(
-                                                  height: 25,
-                                                ),
-                                                const Text(
-                                                  "Name",
-                                                  style: TextStyle(
-                                                      color: textColor,
-                                                      fontWeight:
-                                                          FontWeight.w500),
-                                                ),
-                                                TextFormField(
-                                                  decoration:
-                                                      const InputDecoration(
-                                                          border:
-                                                              InputBorder.none,
-                                                          filled: true,
-                                                          fillColor:
-                                                              textFormFillColor),
-                                                ),
-                                                const Text(
-                                                  "Phone No",
-                                                  style: TextStyle(
-                                                      color: textColor,
-                                                      fontWeight:
-                                                          FontWeight.w500),
-                                                ),
-                                                TextFormField(
-                                                  decoration:
-                                                      const InputDecoration(
-                                                          border:
-                                                              InputBorder.none,
-                                                          filled: true,
-                                                          fillColor:
-                                                              textFormFillColor),
-                                                ),
-                                                const Text(
-                                                  "Address",
-                                                  style: TextStyle(
-                                                      color: textColor,
-                                                      fontWeight:
-                                                          FontWeight.w500),
-                                                ),
-                                                TextFormField(
-                                                  maxLines: 4,
-                                                  decoration:
-                                                      const InputDecoration(
-                                                          border:
-                                                              InputBorder.none,
-                                                          filled: true,
-                                                          fillColor:
-                                                              textFormFillColor),
-                                                ),
-                                              ],
-                                            )),
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.start,
+                                                  children: [
+                                                    const SizedBox(
+                                                      height: 25,
+                                                    ),
+                                                    const Text(
+                                                      "Name",
+                                                      style: TextStyle(
+                                                          color: textColor,
+                                                          fontWeight:
+                                                              FontWeight.w500),
+                                                    ),
+                                                    TextFromFieldWidget(
+                                                      controller: cartModel
+                                                          .nameController,
+                                                      validator: cartModel
+                                                          .validateName,
+                                                    ),
+                                                    const Text(
+                                                      "Phone No",
+                                                      style: TextStyle(
+                                                          color: textColor,
+                                                          fontWeight:
+                                                              FontWeight.w500),
+                                                    ),
+                                                    TextFromFieldWidget(
+                                                      inputType:
+                                                          TextInputType.number,
+                                                      controller: cartModel
+                                                          .phoneController,
+                                                      validator: cartModel
+                                                          .validatePhone,
+                                                    ),
+                                                    const Text(
+                                                      "Address",
+                                                      style: TextStyle(
+                                                          color: textColor,
+                                                          fontWeight:
+                                                              FontWeight.w500),
+                                                    ),
+                                                    TextFromFieldWidget(
+                                                      lines: 4,
+                                                      controller: cartModel
+                                                          .addressController,
+                                                      validator: cartModel
+                                                          .validateAddress,
+                                                    ),
+                                                  ],
+                                                )),
                                           ),
                                         ),
                                         actions: [
@@ -320,7 +315,10 @@ class _ProductDetailViewState extends State<ProductDetailView> {
                                               child: InkWell(
                                                 borderRadius:
                                                     BorderRadius.circular(13.0),
-                                                onTap: () {},
+                                                onTap: () {
+                                                  cartModel.makeOrder(
+                                                      agrs.product);
+                                                },
                                                 child: const Padding(
                                                     padding:
                                                         EdgeInsets.symmetric(

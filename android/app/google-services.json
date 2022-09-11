@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "131786629816",
+    "project_id": "maybelline-383a2",
+    "storage_bucket": "maybelline-383a2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:131786629816:android:fd0965e31a033113bbca4d",
+        "android_client_info": {
+          "package_name": "com.example.maybelline"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "131786629816-8nij26gbk01vpfaks3tl0jqa3qg2f7gs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAn5_Z1KG1-YKgC27j7423P7esjggk8IRY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "131786629816-8nij26gbk01vpfaks3tl0jqa3qg2f7gs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
