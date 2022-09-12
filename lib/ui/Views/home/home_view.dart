@@ -70,24 +70,58 @@ class HomeView extends StatelessWidget {
                     ],
                   )),
               backgroundColor: backgroundColor,
-              body: model.state == ViewState.Busy
-                  ? const Center(
-                      child: CircularProgressIndicator(
-                        color: primaryColor,
-                      ),
-                    )
-                  : Padding(
-                      padding: const EdgeInsets.all(10),
-                      child: GridView.builder(
-                          itemCount: model.products.length,
-                          gridDelegate:
-                              const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2,
-                            childAspectRatio: 0.60,
+              body: Column(
+                children: [
+                  Container(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 25, vertical: 10),
+                    child: TextField(
+                      cursorColor: Colors.grey.shade200,
+                      decoration: InputDecoration(
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Colors.grey.shade200, width: 0.0),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Colors.grey.shade200, width: 0.0),
+                        ),
+                        filled: true,
+                        fillColor: Colors.grey.shade200,
+                        suffixIcon: IconButton(
+                          icon: const Icon(
+                            Icons.search,
+                            color: Colors.grey,
                           ),
-                          itemBuilder: (context, index) =>
-                              CardWidget(model.products[index])),
-                    )),
+                          onPressed: () {},
+                        ),
+                        hintText: 'Search the products ...',
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30.0),
+                        ),
+                      ),
+                    ),
+                  ),
+                  model.state == ViewState.Busy
+                      ? const Center(
+                          child: CircularProgressIndicator(
+                            color: primaryColor,
+                          ),
+                        )
+                      : Expanded(
+                          child: GridView.builder(
+                              shrinkWrap: true,
+                              itemCount: model.products.length,
+                              gridDelegate:
+                                  const SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 2,
+                                childAspectRatio: 0.60,
+                              ),
+                              itemBuilder: (context, index) =>
+                                  CardWidget(model.products[index])),
+                        ),
+                ],
+              )),
     );
   }
 }
