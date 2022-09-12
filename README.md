@@ -1,6 +1,7 @@
 # maybelline
 
 1.Home Screen<br><br>
+![Home Screen](screenshots/home.jpg)<br>
 
 1.Product detail Screen<br><br>
 ![product detail Screen](screenshots/product%20detail1.jpg)<br>
