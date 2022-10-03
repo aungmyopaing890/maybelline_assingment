@@ -20,12 +20,8 @@ class Responsive extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
         if (MediaQuery.of(context).size.width >= 800) {
-          print(constraints.maxWidth);
           return tablet;
         } else {
-          print(MediaQuery.of(context).size.width);
-          print("mobile");
-          print(constraints.maxWidth);
           return mobile;
         }
       },

@@ -153,7 +153,7 @@ class _ProductDetailViewState extends State<ProductDetailView> {
                             color: primaryColor,
                           ),
                           itemCount: 5,
-                          itemSize: 20.0,
+                          itemSize: Responsive.isMobile(context) ? 20 : 22,
                           direction: Axis.horizontal,
                         )
                       ],
