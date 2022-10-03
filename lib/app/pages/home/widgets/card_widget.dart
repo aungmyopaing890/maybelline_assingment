@@ -21,7 +21,7 @@ class CardWidget extends StatelessWidget {
           alignment: Alignment.center,
           margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
           width: Responsive.isMobile(context) ? 150 : 300,
-          height: Responsive.isMobile(context) ? 300 : 300,
+          height: Responsive.isMobile(context) ? 150 : 300,
           child: Card(
             color: cardColor,
             child: Column(
@@ -33,11 +33,11 @@ class CardWidget extends StatelessWidget {
                       margin: const EdgeInsets.symmetric(
                           horizontal: 5, vertical: 10),
                       width: Responsive.isMobile(context) ? 150 : 300,
-                      height: Responsive.isMobile(context) ? 300 : 300,
+                      height: Responsive.isMobile(context) ? 150 : 300,
                       child: Image.network(
                         product.imageLink.toString(),
                         width: Responsive.isMobile(context) ? 100 : 150,
-                        height: Responsive.isMobile(context) ? 200 : 300,
+                        height: Responsive.isMobile(context) ? 150 : 300,
                         fit: BoxFit.cover,
                       ),
                     ),

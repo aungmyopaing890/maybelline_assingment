@@ -39,7 +39,7 @@ class _ProductDetailViewState extends State<ProductDetailView> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Container(
-                width: 400,
+                width: Responsive.isMobile(context) ? 200 : 400,
                 margin:
                     const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                 alignment: Alignment.center,
