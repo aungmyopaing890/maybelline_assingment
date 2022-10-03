@@ -21,56 +21,94 @@ class _ProductDetailViewState extends State<ProductDetailView> {
     CartModel cartModel = context.watch<CartModel>();
     final ProductDetailsArguments agrs =
         ModalRoute.of(context)!.settings.arguments as ProductDetailsArguments;
-
+    const double borderRadius = 20;
     return Scaffold(
       appBar: AppBar(
           backgroundColor: const Color.fromRGBO(255, 255, 255, 1),
           centerTitle: true,
           elevation: 0,
-          leading: IconButton(
-            icon: Icon(
-              Icons.arrow_back_ios,
-              size: Responsive.isMobile(context) ? 20 : 22,
-              color: primaryColor,
-            ),
-            onPressed: () => Navigator.of(context).pop(),
-          ),
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Container(
-                  width: Responsive.isMobile(context) ? 200 : 400,
-                  margin:
-                      const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                  alignment: Alignment.center,
-                  child: Text(
-                    agrs.product.name.toString(),
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: Responsive.isMobile(context) ? 20 : 22,
-                        fontWeight: FontWeight.bold),
-                  )),
-              Ink(
-                decoration: BoxDecoration(
-                    border: Border.all(color: outlineColor, width: 3),
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(13.0)),
-                child: InkWell(
-                  borderRadius: BorderRadius.circular(13.0),
-                  onTap: () {},
-                  child: Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Icon(
-                      Icons.shopping_cart_outlined,
-                      size: Responsive.isMobile(context) ? 20 : 22,
-                      color: primaryColor,
+          toolbarHeight: Responsive.isMobile(context) ? 100 : 130,
+          automaticallyImplyLeading: false,
+          title: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 5),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Ink(
+                  decoration: BoxDecoration(
+                      border: Border.all(color: outlineColor, width: 3),
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(13.0)),
+                  child: InkWell(
+                    borderRadius: BorderRadius.circular(13.0),
+                    onTap: () => Navigator.of(context).pop(),
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                          left: 15, right: 5, top: 10, bottom: 10),
+                      child: Icon(
+                        Icons.arrow_back_ios,
+                        size: Responsive.isMobile(context) ? 28 : 30,
+                        color: primaryColor,
+                      ),
                     ),
                   ),
                 ),
-              ),
-            ],
+
+                Container(
+                    width: Responsive.isMobile(context) ? 200 : 400,
+                    margin: const EdgeInsets.symmetric(
+                        vertical: 10, horizontal: 10),
+                    alignment: Alignment.center,
+                    child: Text(
+                      agrs.product.name.toString(),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: Responsive.isMobile(context) ? 20 : 22,
+                          fontWeight: FontWeight.bold),
+                    )),
+
+                Ink(
+                  decoration: BoxDecoration(
+                      border: Border.all(color: outlineColor, width: 3),
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(13.0)),
+                  child: InkWell(
+                    borderRadius: BorderRadius.circular(13.0),
+                    onTap: () => Navigator.of(context).pop(),
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                          left: 5, right: 5, top: 10, bottom: 10),
+                      child: Icon(
+                        Icons.shopping_cart_outlined,
+                        size: Responsive.isMobile(context) ? 28 : 30,
+                        color: primaryColor,
+                      ),
+                    ),
+                  ),
+                ),
+                // Ink(
+                //   decoration: BoxDecoration(
+                //       border: Border.all(color: outlineColor, width: 3),
+                //       color: Colors.white,
+                //       borderRadius: BorderRadius.circular(13.0)),
+                //   child: InkWell(
+                //     borderRadius: BorderRadius.circular(13.0),
+                //     onTap: () {},
+                //     child: Container(
+                //       padding: EdgeInsets.only(
+                //           left: 10, top: 10, right: 5, bottom: 10),
+                //       child: Icon(
+                //         Icons.shopping_cart_outlined,
+                //         size: 26,
+                //         color: primaryColor,
+                //       ),
+                //     ),
+                //   ),
+                // ),
+              ],
+            ),
           )),
       backgroundColor: backgroundColor,
       body: SingleChildScrollView(
@@ -82,12 +120,12 @@ class _ProductDetailViewState extends State<ProductDetailView> {
               child: Container(
                 alignment: Alignment.center,
                 margin: const EdgeInsets.symmetric(horizontal: 5),
-                width: Responsive.isMobile(context) ? 250 : 350,
-                height: Responsive.isMobile(context) ? 270 : 450,
+                width: Responsive.isMobile(context) ? 250 : 500,
+                height: Responsive.isMobile(context) ? 270 : 500,
                 child: Image.network(
                   agrs.product.imageLink.toString(),
-                  width: Responsive.isMobile(context) ? 250 : 350,
-                  height: Responsive.isMobile(context) ? 270 : 450,
+                  width: Responsive.isMobile(context) ? 250 : 500,
+                  height: Responsive.isMobile(context) ? 270 : 500,
                   fit: BoxFit.fitWidth,
                 ),
               ),
@@ -95,15 +133,17 @@ class _ProductDetailViewState extends State<ProductDetailView> {
             Card(
               shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(15),
-                    topRight: Radius.circular(15)),
+                    topLeft: Radius.circular(borderRadius),
+                    topRight: Radius.circular(borderRadius)),
               ),
               color: cardColor,
+              elevation: 20,
+              shadowColor: Colors.transparent,
               child: Column(
                 children: [
                   Container(
                     margin: const EdgeInsets.symmetric(
-                        horizontal: 25, vertical: 10),
+                        horizontal: 25, vertical: 20),
                     child: ColorsSelector(
                       colors: agrs.product.productColors != null
                           ? agrs.product.productColors!
@@ -111,7 +151,8 @@ class _ProductDetailViewState extends State<ProductDetailView> {
                     ),
                   ),
                   Container(
-                      margin: const EdgeInsets.symmetric(horizontal: 25),
+                      margin: const EdgeInsets.symmetric(
+                          horizontal: 25, vertical: 10),
                       alignment: Alignment.centerLeft,
                       child: Text(
                         agrs.product.name.toString(),
@@ -120,11 +161,11 @@ class _ProductDetailViewState extends State<ProductDetailView> {
                         style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
-                            fontSize: Responsive.isMobile(context) ? 20 : 22),
+                            fontSize: Responsive.isMobile(context) ? 22 : 24),
                       )),
                   Container(
                     margin: const EdgeInsets.only(
-                        left: 25, right: 25, bottom: 10, top: 5),
+                        left: 25, right: 25, bottom: 20, top: 15),
                     alignment: Alignment.centerLeft,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -133,7 +174,7 @@ class _ProductDetailViewState extends State<ProductDetailView> {
                           agrs.product.productType.toString(),
                           style: TextStyle(
                               color: Colors.grey,
-                              fontWeight: FontWeight.w500,
+                              fontWeight: FontWeight.w400,
                               fontSize: Responsive.isMobile(context) ? 20 : 22),
                         ),
                         RatingBarIndicator(
@@ -145,22 +186,22 @@ class _ProductDetailViewState extends State<ProductDetailView> {
                             color: primaryColor,
                           ),
                           itemCount: 5,
-                          itemSize: Responsive.isMobile(context) ? 20 : 22,
+                          itemSize: Responsive.isMobile(context) ? 24 : 26,
                           direction: Axis.horizontal,
                         )
                       ],
                     ),
                   ),
                   Container(
-                    margin:
-                        const EdgeInsets.symmetric(vertical: 0, horizontal: 25),
+                    margin: const EdgeInsets.symmetric(
+                        vertical: 20, horizontal: 25),
                     alignment: Alignment.centerLeft,
                     child: RichText(
                       text: TextSpan(
                         style: TextStyle(
                             color: Colors.grey,
                             fontWeight: FontWeight.w500,
-                            fontSize: Responsive.isMobile(context) ? 14 : 16),
+                            fontSize: Responsive.isMobile(context) ? 16 : 18),
                         text: agrs.product.description,
                       ),
                     ),
@@ -234,7 +275,7 @@ class _ProductDetailViewState extends State<ProductDetailView> {
                                   builder: (context) => AlertDialog(
                                         shape: const RoundedRectangleBorder(
                                             borderRadius: BorderRadius.all(
-                                                Radius.circular(15.0))),
+                                                Radius.circular(borderRadius))),
                                         title: const Center(
                                             child: Text(
                                           "Delivery Info",

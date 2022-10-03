@@ -8,52 +8,63 @@ class OrderWidget extends StatelessWidget {
   const OrderWidget(this.order, {Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    const double borderRadius = 20;
+
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: Card(
         color: cardColor,
-        child: Column(
-          children: [
-            Container(
-              margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    order.name.toString(),
-                    style: TextStyle(
-                        color: greyColor,
-                        fontSize: Responsive.isMobile(context) ? 22 : 24,
-                        fontWeight: FontWeight.w700),
-                  ),
-                  Text(
-                    '${order.priceSign ?? r"$"} ${order.total}',
-                    style: TextStyle(
-                        color: greyColor,
-                        fontSize: Responsive.isMobile(context) ? 20 : 22,
-                        fontWeight: FontWeight.w700),
-                  )
-                ],
+        shadowColor: Colors.transparent,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(borderRadius),
+        ),
+        child: Container(
+          margin: const EdgeInsets.symmetric(vertical: 10),
+          child: Column(
+            children: [
+              Container(
+                margin:
+                    const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      order.name.toString(),
+                      style: TextStyle(
+                          color: greyColor,
+                          fontSize: Responsive.isMobile(context) ? 22 : 24,
+                          fontWeight: FontWeight.w700),
+                    ),
+                    Text(
+                      '${order.priceSign ?? r"$"} ${order.total}',
+                      style: TextStyle(
+                          color: greyColor,
+                          fontSize: Responsive.isMobile(context) ? 20 : 22,
+                          fontWeight: FontWeight.w700),
+                    )
+                  ],
+                ),
               ),
-            ),
-            Container(
-              margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-              alignment: Alignment.centerLeft,
-              child: Text(order.phone.toString(),
-                  style: TextStyle(
-                    color: greyColor,
-                    fontSize: Responsive.isMobile(context) ? 20 : 22,
-                  )),
-            ),
-            Container(
-              margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-              alignment: Alignment.centerLeft,
-              child: Text(order.address.toString(),
-                  style: TextStyle(
+              Container(
+                margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 5),
+                alignment: Alignment.centerLeft,
+                child: Text(order.phone.toString(),
+                    style: TextStyle(
                       color: greyColor,
-                      fontSize: Responsive.isMobile(context) ? 20 : 22)),
-            ),
-          ],
+                      fontSize: Responsive.isMobile(context) ? 20 : 22,
+                    )),
+              ),
+              Container(
+                margin:
+                    const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                alignment: Alignment.centerLeft,
+                child: Text(order.address.toString(),
+                    style: TextStyle(
+                        color: greyColor,
+                        fontSize: Responsive.isMobile(context) ? 20 : 22)),
+              ),
+            ],
+          ),
         ),
       ),
     );
