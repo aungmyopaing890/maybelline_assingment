@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:maybelline/app/data/enum/viewstate.dart';
-import 'package:maybelline/app/data/viewmodels/home_model.dart';
 import 'package:maybelline/app/pages/base_view.dart';
+import 'package:maybelline/app/pages/home/home_model.dart';
 import 'package:maybelline/app/pages/home/widgets/card_widget.dart';
 import 'package:maybelline/app/pages/widgets/responsive.dart';
 import 'package:maybelline/app/ui/app_colors.dart';

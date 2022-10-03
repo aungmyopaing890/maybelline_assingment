@@ -1,8 +1,8 @@
 // ignore_for_file: depend_on_referenced_packages
 import 'package:flutter/material.dart';
 import 'package:maybelline/app/data/viewmodels/cart_model.dart';
-import 'package:maybelline/app/data/viewmodels/home_model.dart';
 import 'package:maybelline/app/data/viewmodels/order_model.dart';
+import 'package:maybelline/app/pages/home/home_model.dart';
 import 'package:maybelline/app/routes/router.dart';
 import 'package:maybelline/app/ui/app_colors.dart';
 import 'package:provider/provider.dart';

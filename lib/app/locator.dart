@@ -5,8 +5,8 @@ import 'package:maybelline/app/data/services/cart_service.dart';
 import 'package:maybelline/app/data/services/order_service.dart';
 import 'package:maybelline/app/data/services/product_service.dart';
 import 'package:maybelline/app/data/viewmodels/cart_model.dart';
-import 'package:maybelline/app/data/viewmodels/home_model.dart';
 import 'package:maybelline/app/data/viewmodels/order_model.dart';
+import 'package:maybelline/app/pages/home/home_model.dart';
 
 GetIt locator = GetIt.instance;
 
