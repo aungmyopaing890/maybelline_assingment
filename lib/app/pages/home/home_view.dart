@@ -121,7 +121,7 @@ class HomeView extends StatelessWidget {
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2,
                         childAspectRatio:
-                            Responsive.isMobile(context) ? 0.60 : 0.90,
+                            Responsive.isMobile(context) ? 0.60 : 0.70,
                         mainAxisSpacing: 10.0,
                         crossAxisSpacing: 10.0),
                     delegate: SliverChildBuilderDelegate(

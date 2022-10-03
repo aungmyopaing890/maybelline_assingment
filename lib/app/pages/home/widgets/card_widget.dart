@@ -20,36 +20,47 @@ class CardWidget extends StatelessWidget {
         child: Container(
           alignment: Alignment.center,
           margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-          width: Responsive.isMobile(context) ? 150 : 300,
-          height: Responsive.isMobile(context) ? 150 : 300,
+          width: Responsive.isMobile(context) ? 150 : 350,
+          height: Responsive.isMobile(context) ? 150 : 400,
           child: Card(
             color: cardColor,
+            elevation: 20,
+            shadowColor: Colors.transparent,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20.0),
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Stack(
-                  children: <Widget>[
-                    Container(
-                      margin: const EdgeInsets.symmetric(
-                          horizontal: 5, vertical: 10),
-                      width: Responsive.isMobile(context) ? 150 : 300,
-                      height: Responsive.isMobile(context) ? 150 : 300,
-                      child: Image.network(
-                        product.imageLink.toString(),
-                        width: Responsive.isMobile(context) ? 100 : 150,
-                        height: Responsive.isMobile(context) ? 150 : 300,
-                        fit: BoxFit.cover,
+                Container(
+                  margin: const EdgeInsets.symmetric(vertical: 10),
+                  child: Stack(
+                    alignment: Alignment.topCenter,
+                    children: <Widget>[
+                      ClipRRect(
+                        borderRadius: const BorderRadius.only(
+                            topLeft: Radius.circular(15),
+                            topRight: Radius.circular(15)),
+                        child: Image.network(
+                          product.imageLink.toString(),
+                          width: Responsive.isMobile(context) ? 100 : 350,
+                          height: Responsive.isMobile(context) ? 150 : 400,
+                          fit: BoxFit.cover,
+                        ),
                       ),
-                    ),
-                    const Align(
-                      alignment: Alignment.topRight,
-                      child: Icon(
-                        Icons.favorite,
-                        size: 25,
-                        color: Colors.red,
-                      ),
-                    )
-                  ],
+                      Align(
+                        alignment: Alignment.topRight,
+                        child: Padding(
+                          padding: const EdgeInsets.all(20.0),
+                          child: Icon(
+                            Icons.favorite,
+                            size: Responsive.isMobile(context) ? 30 : 32,
+                            color: Colors.red,
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
                 ),
                 Container(
                     margin: const EdgeInsets.symmetric(
