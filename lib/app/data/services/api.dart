@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:maybelline/core/models/product.dart';
+import 'package:maybelline/app/data/models/product.dart';
 
 class Api {
   static const endpoint =

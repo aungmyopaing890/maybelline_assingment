@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:maybelline/core/models/product.dart';
-import 'package:maybelline/ui/Views/productDetails/product_detail_view.dart';
-import 'package:maybelline/ui/shared/app_colors.dart';
+import 'package:maybelline/app/data/models/product.dart';
+import 'package:maybelline/app/pages/productDetails/product_detail_view.dart';
+import 'package:maybelline/app/ui/app_colors.dart';
 
 class CardWidget extends StatelessWidget {
   final Product product;

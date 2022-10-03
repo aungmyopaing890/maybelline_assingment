@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:maybelline/core/models/order.dart';
-import 'package:maybelline/ui/shared/app_colors.dart';
+import 'package:maybelline/app/data/models/order.dart';
+import 'package:maybelline/app/ui/app_colors.dart';
 
 class OrderWidget extends StatelessWidget {
   final Order order;

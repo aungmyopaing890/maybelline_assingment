@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:maybelline/core/enum/viewstate.dart';
+import 'package:maybelline/app/data/enum/viewstate.dart';
 
 class BaseModel extends ChangeNotifier {
   ViewState _state = ViewState.Idle;

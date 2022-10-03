@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:maybelline/core/models/product.dart';
+import 'package:maybelline/app/data/models/product.dart';
 
 class ColorsSelector extends StatelessWidget {
   final List<ProductColor> colors;

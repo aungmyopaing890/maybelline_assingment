@@ -1,9 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:maybelline/core/models/product.dart';
-import 'package:maybelline/core/services/product_service.dart';
-import 'package:maybelline/core/viewmodels/base_model.dart';
-import 'package:maybelline/locator.dart';
+import 'package:maybelline/app/data/models/product.dart';
+import 'package:maybelline/app/data/services/product_service.dart';
+import 'package:maybelline/app/data/viewmodels/base_model.dart';
+import 'package:maybelline/app/locator.dart';
 
 class CartModel extends BaseModel {
   final ProductService _productService = locator<ProductService>();

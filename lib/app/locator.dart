@@ -1,12 +1,12 @@
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:get_it/get_it.dart';
-import 'package:maybelline/core/services/api.dart';
-import 'package:maybelline/core/services/cart_service.dart';
-import 'package:maybelline/core/services/order_service.dart';
-import 'package:maybelline/core/services/product_service.dart';
-import 'package:maybelline/core/viewmodels/cart_model.dart';
-import 'package:maybelline/core/viewmodels/home_model.dart';
-import 'package:maybelline/core/viewmodels/order_model.dart';
+import 'package:maybelline/app/data/services/api.dart';
+import 'package:maybelline/app/data/services/cart_service.dart';
+import 'package:maybelline/app/data/services/order_service.dart';
+import 'package:maybelline/app/data/services/product_service.dart';
+import 'package:maybelline/app/data/viewmodels/cart_model.dart';
+import 'package:maybelline/app/data/viewmodels/home_model.dart';
+import 'package:maybelline/app/data/viewmodels/order_model.dart';
 
 GetIt locator = GetIt.instance;
 

@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:maybelline/core/models/order.dart';
+import 'package:maybelline/app/data/models/order.dart';
 
 class OrderService {
   late List<Order> _orders;

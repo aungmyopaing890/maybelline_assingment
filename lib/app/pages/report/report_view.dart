@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:maybelline/core/models/order.dart';
-import 'package:maybelline/core/viewmodels/order_model.dart';
-import 'package:maybelline/ui/Views/base_view.dart';
-import 'package:maybelline/ui/Views/report/widgets/order_widget.dart';
-import 'package:maybelline/ui/shared/app_colors.dart';
+import 'package:maybelline/app/data/models/order.dart';
+import 'package:maybelline/app/data/viewmodels/order_model.dart';
+import 'package:maybelline/app/pages/base_view.dart';
+import 'package:maybelline/app/pages/report/widgets/order_widget.dart';
+import 'package:maybelline/app/ui/app_colors.dart';
 
 class ReportView extends StatelessWidget {
   const ReportView({Key? key}) : super(key: key);

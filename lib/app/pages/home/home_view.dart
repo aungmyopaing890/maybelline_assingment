@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:maybelline/core/enum/viewstate.dart';
-import 'package:maybelline/core/viewmodels/home_model.dart';
-import 'package:maybelline/ui/Views/base_view.dart';
-import 'package:maybelline/ui/Views/home/widgets/card_widget.dart';
-import 'package:maybelline/ui/shared/app_colors.dart';
+import 'package:maybelline/app/data/enum/viewstate.dart';
+import 'package:maybelline/app/data/viewmodels/home_model.dart';
+import 'package:maybelline/app/pages/base_view.dart';
+import 'package:maybelline/app/pages/home/widgets/card_widget.dart';
+import 'package:maybelline/app/ui/app_colors.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({Key? key}) : super(key: key);

@@ -1,6 +1,6 @@
-import 'package:maybelline/core/models/product.dart';
-import 'package:maybelline/core/services/api.dart';
-import 'package:maybelline/locator.dart';
+import 'package:maybelline/app/data/models/product.dart';
+import 'package:maybelline/app/data/services/api.dart';
+import 'package:maybelline/app/locator.dart';
 
 class ProductService {
   final Api _api = locator<Api>();

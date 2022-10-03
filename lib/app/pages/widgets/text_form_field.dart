@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:maybelline/ui/shared/app_colors.dart';
+import 'package:maybelline/app/ui/app_colors.dart';
 
 // ignore: must_be_immutable
 class TextFromFieldWidget extends StatelessWidget {

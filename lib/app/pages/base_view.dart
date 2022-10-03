@@ -1,8 +1,8 @@
 // ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors_in_immutables
 
 import 'package:flutter/material.dart';
-import 'package:maybelline/core/viewmodels/base_model.dart';
-import 'package:maybelline/locator.dart';
+import 'package:maybelline/app/data/viewmodels/base_model.dart';
+import 'package:maybelline/app/locator.dart';
 import 'package:provider/provider.dart';
 
 class BaseView<T extends BaseModel> extends StatefulWidget {

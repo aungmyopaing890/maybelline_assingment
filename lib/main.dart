@@ -1,13 +1,13 @@
 // ignore_for_file: depend_on_referenced_packages
 import 'package:flutter/material.dart';
-import 'package:maybelline/core/viewmodels/cart_model.dart';
-import 'package:maybelline/core/viewmodels/home_model.dart';
-import 'package:maybelline/core/viewmodels/order_model.dart';
-import 'package:maybelline/locator.dart';
-import 'package:maybelline/ui/routes.dart';
-import 'package:maybelline/ui/shared/app_colors.dart';
+import 'package:maybelline/app/data/viewmodels/cart_model.dart';
+import 'package:maybelline/app/data/viewmodels/home_model.dart';
+import 'package:maybelline/app/data/viewmodels/order_model.dart';
+import 'package:maybelline/app/routes/router.dart';
+import 'package:maybelline/app/ui/app_colors.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'app/locator.dart';
 
 bool shouldUseFirestoreEmulator = false;
 Future main() async {
@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
           title: 'Maybeline',
           theme: ThemeData(
               brightness: Brightness.light, primaryColor: primaryColor),
-          initialRoute: '/',
+          initialRoute: Routes.homeRoute,
           routes: routes,
         ));
   }

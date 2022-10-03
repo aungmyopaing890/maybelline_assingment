@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:maybelline/core/models/product.dart';
-import 'package:maybelline/core/viewmodels/cart_model.dart';
-import 'package:maybelline/ui/Views/productDetails/widgets/product_color_widget.dart';
-import 'package:maybelline/ui/Views/widgets/text_form_field.dart';
-import 'package:maybelline/ui/shared/app_colors.dart';
+import 'package:maybelline/app/data/models/product.dart';
+import 'package:maybelline/app/data/viewmodels/cart_model.dart';
+import 'package:maybelline/app/pages/productDetails/widgets/product_color_widget.dart';
+import 'package:maybelline/app/pages/widgets/text_form_field.dart';
+import 'package:maybelline/app/ui/app_colors.dart';
 import 'package:provider/provider.dart';
 
 class ProductDetailView extends StatefulWidget {
