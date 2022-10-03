@@ -3,6 +3,7 @@ import 'package:maybelline/app/data/models/order.dart';
 import 'package:maybelline/app/data/viewmodels/order_model.dart';
 import 'package:maybelline/app/pages/base_view.dart';
 import 'package:maybelline/app/pages/report/widgets/order_widget.dart';
+import 'package:maybelline/app/pages/widgets/responsive.dart';
 import 'package:maybelline/app/ui/app_colors.dart';
 
 class ReportView extends StatelessWidget {
@@ -28,11 +29,12 @@ class ReportView extends StatelessWidget {
                     ),
                     title: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
+                      children: [
                         Text("Report",
                             style: TextStyle(
                                 color: Colors.black,
-                                fontSize: 20,
+                                fontSize:
+                                    Responsive.isMobile(context) ? 20 : 22,
                                 fontWeight: FontWeight.bold)),
                       ],
                     )),

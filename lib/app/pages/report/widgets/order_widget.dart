@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:maybelline/app/data/models/order.dart';
+import 'package:maybelline/app/pages/widgets/responsive.dart';
 import 'package:maybelline/app/ui/app_colors.dart';
 
 class OrderWidget extends StatelessWidget {
@@ -20,16 +21,16 @@ class OrderWidget extends StatelessWidget {
                 children: [
                   Text(
                     order.name.toString(),
-                    style: const TextStyle(
+                    style: TextStyle(
                         color: greyColor,
-                        fontSize: 20,
+                        fontSize: Responsive.isMobile(context) ? 22 : 24,
                         fontWeight: FontWeight.w700),
                   ),
                   Text(
                     '${order.priceSign ?? r"$"} ${order.total}',
-                    style: const TextStyle(
+                    style: TextStyle(
                         color: greyColor,
-                        fontSize: 20,
+                        fontSize: Responsive.isMobile(context) ? 20 : 22,
                         fontWeight: FontWeight.w700),
                   )
                 ],
@@ -39,13 +40,18 @@ class OrderWidget extends StatelessWidget {
               margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
               alignment: Alignment.centerLeft,
               child: Text(order.phone.toString(),
-                  style: const TextStyle(color: greyColor, fontSize: 20)),
+                  style: TextStyle(
+                    color: greyColor,
+                    fontSize: Responsive.isMobile(context) ? 20 : 22,
+                  )),
             ),
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
               alignment: Alignment.centerLeft,
               child: Text(order.address.toString(),
-                  style: const TextStyle(color: greyColor, fontSize: 20)),
+                  style: TextStyle(
+                      color: greyColor,
+                      fontSize: Responsive.isMobile(context) ? 20 : 22)),
             ),
           ],
         ),

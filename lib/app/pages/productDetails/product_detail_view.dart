@@ -3,6 +3,7 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:maybelline/app/data/models/product.dart';
 import 'package:maybelline/app/data/viewmodels/cart_model.dart';
 import 'package:maybelline/app/pages/productDetails/widgets/product_color_widget.dart';
+import 'package:maybelline/app/pages/widgets/responsive.dart';
 import 'package:maybelline/app/pages/widgets/text_form_field.dart';
 import 'package:maybelline/app/ui/app_colors.dart';
 import 'package:provider/provider.dart';
@@ -27,9 +28,9 @@ class _ProductDetailViewState extends State<ProductDetailView> {
           centerTitle: true,
           elevation: 0,
           leading: IconButton(
-            icon: const Icon(
+            icon: Icon(
               Icons.arrow_back_ios,
-              size: 20.0,
+              size: Responsive.isMobile(context) ? 20 : 22,
               color: primaryColor,
             ),
             onPressed: () => Navigator.of(context).pop(),
@@ -38,7 +39,7 @@ class _ProductDetailViewState extends State<ProductDetailView> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Container(
-                width: 200,
+                width: 400,
                 margin:
                     const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                 alignment: Alignment.center,
@@ -46,9 +47,9 @@ class _ProductDetailViewState extends State<ProductDetailView> {
                   child: RichText(
                     overflow: TextOverflow.ellipsis,
                     text: TextSpan(
-                      style: const TextStyle(
+                      style: TextStyle(
                           color: Colors.black,
-                          fontSize: 20,
+                          fontSize: Responsive.isMobile(context) ? 20 : 22,
                           fontWeight: FontWeight.bold),
                       text: agrs.product.name.toString(),
                     ),
@@ -63,11 +64,11 @@ class _ProductDetailViewState extends State<ProductDetailView> {
                 child: InkWell(
                   borderRadius: BorderRadius.circular(13.0),
                   onTap: () {},
-                  child: const Padding(
-                    padding: EdgeInsets.all(10.0),
+                  child: Padding(
+                    padding: const EdgeInsets.all(10.0),
                     child: Icon(
                       Icons.shopping_cart_outlined,
-                      size: 20.0,
+                      size: Responsive.isMobile(context) ? 20 : 22,
                       color: primaryColor,
                     ),
                   ),
@@ -85,12 +86,12 @@ class _ProductDetailViewState extends State<ProductDetailView> {
               child: Container(
                 alignment: Alignment.center,
                 margin: const EdgeInsets.symmetric(horizontal: 5),
-                width: 250.0,
-                height: 270.0,
+                width: Responsive.isMobile(context) ? 250 : 350,
+                height: Responsive.isMobile(context) ? 270 : 450,
                 child: Image.network(
                   agrs.product.imageLink.toString(),
-                  height: 250,
-                  width: 270,
+                  width: Responsive.isMobile(context) ? 250 : 350,
+                  height: Responsive.isMobile(context) ? 270 : 450,
                   fit: BoxFit.fitWidth,
                 ),
               ),
@@ -120,10 +121,10 @@ class _ProductDetailViewState extends State<ProductDetailView> {
                       child: RichText(
                         overflow: TextOverflow.ellipsis,
                         text: TextSpan(
-                          style: const TextStyle(
+                          style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.bold,
-                              fontSize: 20),
+                              fontSize: Responsive.isMobile(context) ? 20 : 22),
                           text: agrs.product.name,
                         ),
                       ),
@@ -138,8 +139,10 @@ class _ProductDetailViewState extends State<ProductDetailView> {
                       children: [
                         Text(
                           agrs.product.productType.toString(),
-                          style: const TextStyle(
-                              color: Colors.grey, fontWeight: FontWeight.w500),
+                          style: TextStyle(
+                              color: Colors.grey,
+                              fontWeight: FontWeight.w500,
+                              fontSize: Responsive.isMobile(context) ? 20 : 22),
                         ),
                         RatingBarIndicator(
                           rating: agrs.product.rating != null
@@ -162,10 +165,10 @@ class _ProductDetailViewState extends State<ProductDetailView> {
                     alignment: Alignment.centerLeft,
                     child: RichText(
                       text: TextSpan(
-                        style: const TextStyle(
+                        style: TextStyle(
                             color: Colors.grey,
                             fontWeight: FontWeight.w500,
-                            fontSize: 14),
+                            fontSize: Responsive.isMobile(context) ? 14 : 16),
                         text: agrs.product.description,
                       ),
                     ),
@@ -186,8 +189,9 @@ class _ProductDetailViewState extends State<ProductDetailView> {
                       children: [
                         Text(
                           '${agrs.product.priceSign ?? r"$"} ${agrs.product.total}',
-                          style: const TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 25),
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: Responsive.isMobile(context) ? 25 : 27),
                         ),
                         const SizedBox(
                           width: 25,
@@ -210,8 +214,10 @@ class _ProductDetailViewState extends State<ProductDetailView> {
                                   )),
                               Text(
                                 agrs.product.quantity.toString(),
-                                style: const TextStyle(
-                                    fontSize: 15, color: greyColor),
+                                style: TextStyle(
+                                    fontSize:
+                                        Responsive.isMobile(context) ? 15 : 17,
+                                    color: greyColor),
                               ),
                               IconButton(
                                   onPressed: () {
@@ -246,7 +252,12 @@ class _ProductDetailViewState extends State<ProductDetailView> {
                                         )),
                                         content: SingleChildScrollView(
                                           child: SizedBox(
-                                            height: 350,
+                                            width: Responsive.isMobile(context)
+                                                ? 300
+                                                : 700,
+                                            height: Responsive.isMobile(context)
+                                                ? 350
+                                                : 500,
                                             child: Form(
                                                 key: cartModel.formKey,
                                                 child: Column(
@@ -258,10 +269,15 @@ class _ProductDetailViewState extends State<ProductDetailView> {
                                                     const SizedBox(
                                                       height: 25,
                                                     ),
-                                                    const Text(
+                                                    Text(
                                                       "Name",
                                                       style: TextStyle(
                                                           color: textColor,
+                                                          fontSize: Responsive
+                                                                  .isMobile(
+                                                                      context)
+                                                              ? 20
+                                                              : 22,
                                                           fontWeight:
                                                               FontWeight.w500),
                                                     ),
@@ -271,10 +287,15 @@ class _ProductDetailViewState extends State<ProductDetailView> {
                                                       validator: cartModel
                                                           .validateName,
                                                     ),
-                                                    const Text(
+                                                    Text(
                                                       "Phone No",
                                                       style: TextStyle(
                                                           color: textColor,
+                                                          fontSize: Responsive
+                                                                  .isMobile(
+                                                                      context)
+                                                              ? 20
+                                                              : 22,
                                                           fontWeight:
                                                               FontWeight.w500),
                                                     ),
@@ -286,15 +307,24 @@ class _ProductDetailViewState extends State<ProductDetailView> {
                                                       validator: cartModel
                                                           .validatePhone,
                                                     ),
-                                                    const Text(
+                                                    Text(
                                                       "Address",
                                                       style: TextStyle(
                                                           color: textColor,
+                                                          fontSize: Responsive
+                                                                  .isMobile(
+                                                                      context)
+                                                              ? 20
+                                                              : 22,
                                                           fontWeight:
                                                               FontWeight.w500),
                                                     ),
                                                     TextFromFieldWidget(
-                                                      lines: 4,
+                                                      lines:
+                                                          Responsive.isMobile(
+                                                                  context)
+                                                              ? 4
+                                                              : 6,
                                                       controller: cartModel
                                                           .addressController,
                                                       validator: cartModel
@@ -319,14 +349,19 @@ class _ProductDetailViewState extends State<ProductDetailView> {
                                                   cartModel
                                                       .makeOrder(agrs.product);
                                                 },
-                                                child: const Padding(
-                                                    padding:
-                                                        EdgeInsets.symmetric(
-                                                            horizontal: 25,
-                                                            vertical: 10),
+                                                child: Padding(
+                                                    padding: const EdgeInsets
+                                                            .symmetric(
+                                                        horizontal: 25,
+                                                        vertical: 10),
                                                     child: Text(
                                                       "ORDER",
                                                       style: TextStyle(
+                                                          fontSize: Responsive
+                                                                  .isMobile(
+                                                                      context)
+                                                              ? 20
+                                                              : 22,
                                                           fontWeight:
                                                               FontWeight.bold,
                                                           color: Colors.white),
@@ -337,14 +372,16 @@ class _ProductDetailViewState extends State<ProductDetailView> {
                                         ],
                                       ));
                             },
-                            child: const Padding(
-                                padding: EdgeInsets.symmetric(
+                            child: Padding(
+                                padding: const EdgeInsets.symmetric(
                                     horizontal: 10, vertical: 10),
                                 child: Text(
                                   "Cart",
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 23,
+                                      fontSize: Responsive.isMobile(context)
+                                          ? 22
+                                          : 24,
                                       color: Colors.white),
                                 )),
                           ),

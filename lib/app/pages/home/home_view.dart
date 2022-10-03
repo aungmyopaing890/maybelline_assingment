@@ -3,6 +3,7 @@ import 'package:maybelline/app/data/enum/viewstate.dart';
 import 'package:maybelline/app/data/viewmodels/home_model.dart';
 import 'package:maybelline/app/pages/base_view.dart';
 import 'package:maybelline/app/pages/home/widgets/card_widget.dart';
+import 'package:maybelline/app/pages/widgets/responsive.dart';
 import 'package:maybelline/app/ui/app_colors.dart';
 
 class HomeView extends StatelessWidget {
@@ -44,10 +45,10 @@ class HomeView extends StatelessWidget {
                           ),
                         ),
                       ),
-                      const Text("Maybeline",
+                      Text("Maybeline",
                           style: TextStyle(
                               color: Colors.black,
-                              fontSize: 20,
+                              fontSize: Responsive.isMobile(context) ? 20 : 22,
                               fontWeight: FontWeight.bold)),
                       Ink(
                         decoration: BoxDecoration(
@@ -113,9 +114,11 @@ class HomeView extends StatelessWidget {
                               shrinkWrap: true,
                               itemCount: model.products.length,
                               gridDelegate:
-                                  const SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: 2,
-                                childAspectRatio: 0.60,
+                                  SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount:
+                                    Responsive.isMobile(context) ? 2 : 2,
+                                childAspectRatio:
+                                    Responsive.isMobile(context) ? 0.60 : 0.90,
                               ),
                               itemBuilder: (context, index) =>
                                   CardWidget(model.products[index])),
