@@ -39,23 +39,19 @@ class _ProductDetailViewState extends State<ProductDetailView> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Container(
-                width: Responsive.isMobile(context) ? 200 : 400,
-                margin:
-                    const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                alignment: Alignment.center,
-                child: Flexible(
-                  child: RichText(
+                  width: Responsive.isMobile(context) ? 200 : 400,
+                  margin:
+                      const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                  alignment: Alignment.center,
+                  child: Text(
+                    agrs.product.name.toString(),
+                    maxLines: 1,
                     overflow: TextOverflow.ellipsis,
-                    text: TextSpan(
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: Responsive.isMobile(context) ? 20 : 22,
-                          fontWeight: FontWeight.bold),
-                      text: agrs.product.name.toString(),
-                    ),
-                  ),
-                ),
-              ),
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: Responsive.isMobile(context) ? 20 : 22,
+                        fontWeight: FontWeight.bold),
+                  )),
               Ink(
                 decoration: BoxDecoration(
                     border: Border.all(color: outlineColor, width: 3),
@@ -115,21 +111,17 @@ class _ProductDetailViewState extends State<ProductDetailView> {
                     ),
                   ),
                   Container(
-                    margin: const EdgeInsets.symmetric(horizontal: 25),
-                    alignment: Alignment.centerLeft,
-                    child: Flexible(
-                      child: RichText(
+                      margin: const EdgeInsets.symmetric(horizontal: 25),
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        agrs.product.name.toString(),
+                        maxLines: 1,
                         overflow: TextOverflow.ellipsis,
-                        text: TextSpan(
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                              fontSize: Responsive.isMobile(context) ? 20 : 22),
-                          text: agrs.product.name,
-                        ),
-                      ),
-                    ),
-                  ),
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: Responsive.isMobile(context) ? 20 : 22),
+                      )),
                   Container(
                     margin: const EdgeInsets.only(
                         left: 25, right: 25, bottom: 10, top: 5),

@@ -52,21 +52,17 @@ class CardWidget extends StatelessWidget {
                   ],
                 ),
                 Container(
-                  margin:
-                      const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                  alignment: Alignment.center,
-                  child: Flexible(
-                    child: RichText(
+                    margin: const EdgeInsets.symmetric(
+                        vertical: 10, horizontal: 10),
+                    alignment: Alignment.center,
+                    child: Text(
+                      product.name!,
+                      maxLines: 1,
                       overflow: TextOverflow.ellipsis,
-                      text: TextSpan(
-                        style: TextStyle(
-                            color: titleColor,
-                            fontSize: Responsive.isMobile(context) ? 18 : 20),
-                        text: product.name,
-                      ),
-                    ),
-                  ),
-                ),
+                      style: TextStyle(
+                          color: titleColor,
+                          fontSize: Responsive.isMobile(context) ? 18 : 20),
+                    )),
                 Text(
                   product.productType.toString(),
                   style: TextStyle(
